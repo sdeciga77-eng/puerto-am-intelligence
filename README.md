@@ -2,6 +2,8 @@
 
 Repositorio: https://github.com/sdeciga77-eng/puerto-am-intelligence
 
+**Demo pública (GitHub Codespaces):** https://puerto-am-demo-qvxg5v65j5xwfx4wx-8000.app.github.dev
+
 Aplicación **funcional** con frontend y backend en una sola origen:
 
 | Experiencia | Ruta | Acceso |
