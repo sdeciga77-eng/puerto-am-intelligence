@@ -1,5 +1,7 @@
 # Puerto A&M | Plataforma segura (landing + inteligencia financiera)
 
+Repositorio: https://github.com/sdeciga77-eng/puerto-am-intelligence
+
 Aplicación **funcional** con frontend y backend en una sola origen:
 
 | Experiencia | Ruta | Acceso |
