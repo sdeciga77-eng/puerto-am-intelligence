@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071c31">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Panel ejecutivo — Puerto A&M</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+  <script src="/vendor/chart.umd.min.js"></script>
+</head>
+<body class="admin-page">
+  <div class="admin-shell">
+    <div class="admin-overlay" id="adminOverlay" aria-hidden="true"></div>
+
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="side-brand">
+        <span class="admin-brand-mark">P<span>A</span></span>
+        <div><strong>Puerto A&amp;M</strong><small>INTELLIGENCE HUB</small></div>
+      </div>
+      <nav class="side-nav" aria-label="Navegación del panel">
+        <p class="nav-caption">ANÁLISIS</p>
+        <a class="nav-link active" href="#resumen"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm0 7h6v-5H4v5Zm10 0h6v-9h-6v9Zm0-16v5h6V4h-6Z"/></svg><span>Resumen</span></a>
+        <a class="nav-link" href="#indicadores"><svg viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V8"/></svg><span>Indicadores</span></a>
+        <a class="nav-link" href="#graficas"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg><span>Visualizaciones</span></a>
+        <a class="nav-link" href="#alertas"><svg viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Zm0 6v5m0 3v.5"/></svg><span>Alertas</span></a>
+        <a class="nav-link" href="#ventas"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>Detalle de ventas</span></a>
+        <p class="nav-caption nav-caption--gap">OPERACIÓN</p>
+        <a class="nav-link" href="#integraciones"><svg viewBox="0 0 24 24"><path d="M9 3v4m6-4v4M5 9h14M7 21v-4m10 4v-4M4 7h16v6H4z"/></svg><span>Integraciones</span></a>
+        <a class="nav-link" href="#fuente"><svg viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5V3Zm9 0v5h5"/></svg><span>Fuente de datos</span></a>
+      </nav>
+      <div class="side-foot">
+        <div class="connection"><span class="pulse-dot"></span><div><strong id="excelStatus">Conectando…</strong><small id="excelFileName">Excel</small></div></div>
+        <div class="side-user"><div class="user-avatar" id="userInitial">A</div><div><strong id="userName">Administrador</strong><small>Sesión activa</small></div></div>
+        <button class="side-logout" id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="icon-btn" id="menuBtn" aria-label="Abrir menú"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+          <div class="breadcrumb"><span>Administración</span><b>/</b><strong>Panel ejecutivo</strong></div>
+        </div>
+        <div class="topbar-right">
+          <div class="updated" id="lastUpdate">Sincronizando…</div>
+          <button class="refresh-btn" id="refreshBtn"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg><span>Actualizar</span></button>
+          <button class="ai-toggle" id="aiOpen"><svg viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Zm7 11 .9 2.1L22 17l-2.1.9L19 20l-.9-2.1L16 17l2.1-.9L19 14Z"/></svg><span>Agente IA</span></button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <section class="admin-intro" id="resumen">
+          <div>
+            <p class="eyebrow"><span></span> Centro de inteligencia financiera</p>
+            <h1>Visión integral de la operación</h1>
+            <p>Cifras calculadas en tiempo real desde la fuente conectada. Consulta con lenguaje natural, detecta desviaciones y ejecuta automatizaciones autorizadas.</p>
+          </div>
+          <div class="intro-seal"><span>DATOS VERIFICADOS</span><strong>PA<span>&amp;</span>M</strong><small>Simulación académica</small></div>
+        </section>
+
+        <div class="security-banner" id="securityBanner">
+          <span class="sec-icon" aria-hidden="true">◆</span>
+          <div><strong>Entorno autenticado</strong><span>Sesión protegida · acceso auditado · información financiera nunca aparece en la página pública.</span></div>
+          <span class="sec-badge" id="integrationCount">Verificando integraciones…</span>
+        </div>
+
+        <section class="filter-panel" aria-label="Filtros del dashboard">
+          <div class="filter-title">
+            <svg viewBox="0 0 24 24"><path d="M4 5h16l-6 7v6l-4 2v-8L4 5Z"/></svg>
+            <div><strong>Filtros de análisis</strong><span id="filterCount">Cargando registros…</span></div>
+          </div>
+          <div class="filter-fields">
+            <label><span>Desde</span><input type="date" id="fechaDesde"></label>
+            <label><span>Hasta</span><input type="date" id="fechaHasta"></label>
+            <label><span>Producto</span><select id="productoFilter"><option value="">Todos los productos</option></select></label>
+            <label><span>Categoría</span><select id="categoriaFilter"><option value="">Todas las categorías</option></select></label>
+            <button class="apply-btn" id="applyFilters">Aplicar</button>
+            <button class="ghost-btn" id="clearFilters">Limpiar</button>
+          </div>
+        </section>
+
+        <section class="admin-section" id="indicadores">
+          <div class="section-head"><div><p class="section-kicker">DESEMPEÑO</p><h2>Indicadores clave</h2></div><span class="section-note">Cálculos en MXN · fuente Excel</span></div>
+          <div class="kpi-grid">
+            <article class="kpi-card" style="--accent:#c6a66a"><div class="kpi-top"><div class="kpi-icon">$</div><span>01</span></div><p>Ventas totales</p><h3 id="kpiVentas">—</h3><div class="kpi-foot"><span class="chip" id="chipVentas">—</span><small>Ingresos filtrados</small></div></article>
+            <article class="kpi-card" style="--accent:#2c7da0"><div class="kpi-top"><div class="kpi-icon">#</div><span>02</span></div><p>Pedidos</p><h3 id="kpiPedidos">—</h3><div class="kpi-foot"><span class="chip" id="chipPedidos">—</span><small>Órdenes únicas</small></div></article>
+            <article class="kpi-card" style="--accent:#0f9d76"><div class="kpi-top"><div class="kpi-icon">↗</div><span>03</span></div><p>Ticket promedio</p><h3 id="kpiTicket">—</h3><div class="kpi-foot"><span class="chip" id="chipTicket">—</span><small>Venta / pedido</small></div></article>
+            <article class="kpi-card" style="--accent:#6c7fd8"><div class="kpi-top"><div class="kpi-icon">□</div><span>04</span></div><p>Unidades</p><h3 id="kpiUnidades">—</h3><div class="kpi-foot"><span class="chip" id="chipUnidades">—</span><small>Artículos</small></div></article>
+            <article class="kpi-card" style="--accent:#c9744f"><div class="kpi-top"><div class="kpi-icon">−</div><span>05</span></div><p>Costo de ventas</p><h3 id="kpiCostos">—</h3><div class="kpi-foot"><span class="chip" id="chipCostos">—</span><small>Costo directo</small></div></article>
+            <article class="kpi-card" style="--accent:#3f9c8f"><div class="kpi-top"><div class="kpi-icon">+</div><span>06</span></div><p>Utilidad bruta</p><h3 id="kpiUtilidad">—</h3><div class="kpi-foot"><span class="chip" id="chipUtilidad">—</span><small>Ingresos − costos</small></div></article>
+            <article class="kpi-card" style="--accent:#b08bc4"><div class="kpi-top"><div class="kpi-icon">%</div><span>07</span></div><p>Margen bruto</p><h3 id="kpiMargen">—</h3><div class="kpi-foot"><span class="chip" id="chipMargen">—</span><small>Utilidad / ventas</small></div></article>
+            <article class="kpi-card" style="--accent:#d4a373"><div class="kpi-top"><div class="kpi-icon">⟳</div><span>08</span></div><p>Crecimiento</p><h3 id="kpiCrecimiento">—</h3><div class="kpi-foot"><span class="chip" id="chipCrecimiento">—</span><small id="growthLabel">Último mes</small></div></article>
+          </div>
+
+          <div class="spotlight-grid">
+            <article class="spotlight-card"><div class="spotlight-icon gold">★</div><div><p>PRODUCTO MÁS VENDIDO</p><h3 id="topProductName">—</h3><span id="topProductDetail">—</span></div><div class="spotlight-value" id="topProductUnits">—</div></article>
+            <article class="spotlight-card"><div class="spotlight-icon green">◎</div><div class="spotlight-grow"><p>CUMPLIMIENTO DE METAS</p><h3 id="goalCompliance">—</h3><div class="progress-track"><div class="progress-fill" id="goalProgress"></div></div><span id="goalDetail">—</span></div></article>
+          </div>
+        </section>
+
+        <section class="admin-section" id="alertas">
+          <div class="section-head"><div><p class="section-kicker">DETECCIÓN DE ANOMALÍAS</p><h2>Alertas de la operación</h2></div><span class="section-note">Reglas explícitas sobre datos reales</span></div>
+          <div class="alerts-grid" id="alertsList"><p class="loading-line">Analizando…</p></div>
+        </section>
+
+        <section class="admin-section" id="graficas">
+          <div class="section-head"><div><p class="section-kicker">TENDENCIAS</p><h2>Visualizaciones</h2></div><span class="section-note">series calculadas desde la fuente</span></div>
+          <div class="charts-grid">
+            <article class="chart-card chart-card--wide"><div class="chart-head"><div><h3>Evolución de ventas</h3><p>Ingresos y utilidad por mes</p></div><span class="chart-badge">LÍNEA</span></div><div class="chart-body"><canvas id="chartEvolucion"></canvas></div></article>
+            <article class="chart-card chart-card--wide"><div class="chart-head"><div><h3>Ingresos vs. costos</h3><p>Comparativo mensual</p></div><span class="chart-badge">BARRAS</span></div><div class="chart-body"><canvas id="chartIngresosCostos"></canvas></div></article>
+            <article class="chart-card"><div class="chart-head"><div><h3>Ventas por categoría</h3><p>Participación en ingresos</p></div><span class="chart-badge">ANILLA</span></div><div class="chart-body"><canvas id="chartCategorias"></canvas></div></article>
+            <article class="chart-card"><div class="chart-head"><div><h3>Productos destacados</h3><p>Top 8 por ingresos</p></div><span class="chart-badge">RANKING</span></div><div class="chart-body"><canvas id="chartProductos"></canvas></div></article>
+            <article class="chart-card chart-card--full"><div class="chart-head"><div><h3>Metas vs. resultados</h3><p>Comparación mensual de la compañía</p></div><span class="chart-badge">MIXTO</span></div><div class="chart-body chart-body--tall"><canvas id="chartMetas"></canvas></div><p class="chart-footnote">Las metas son globales: los filtros de producto y categoría no modifican esta comparación.</p></article>
+          </div>
+        </section>
+
+        <section class="table-card" id="ventas">
+          <div class="section-head"><div><p class="section-kicker">TRANSACCIONES</p><h2>Detalle de ventas</h2></div><div class="export-group"><button class="export-btn" data-format="csv">CSV</button><button class="export-btn" data-format="xlsx">Excel</button><button class="export-btn" data-format="json">JSON</button></div></div>
+          <div class="table-toolbar"><div class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input type="search" id="searchInput" placeholder="Buscar pedido, producto, canal…"></div><label class="page-size">Filas por página<select id="pageSize"><option>10</option><option selected>15</option><option>25</option><option>50</option></select></label></div>
+          <div class="table-scroll"><table><thead><tr><th data-sort="fecha">Fecha <span>↕</span></th><th data-sort="pedido">Pedido <span>↕</span></th><th data-sort="producto">Producto <span>↕</span></th><th data-sort="categoria">Categoría <span>↕</span></th><th data-sort="cantidad" class="num">Cant. <span>↕</span></th><th data-sort="precio" class="num">Precio <span>↕</span></th><th data-sort="ingreso" class="num">Ingreso <span>↕</span></th><th data-sort="utilidad" class="num">Utilidad <span>↕</span></th></tr></thead><tbody id="salesBody"></tbody></table></div>
+          <div class="pagination"><span id="pageInfo">—</span><div><button id="prevPage" aria-label="Anterior">‹</button><button id="nextPage" aria-label="Siguiente">›</button></div></div>
+        </section>
+
+        <section class="table-card" id="metas">
+          <div class="section-head"><div><p class="section-kicker">OBJETIVOS</p><h2>Metas vs. resultados</h2></div><span class="section-note">Fuente: hoja Metas</span></div>
+          <div class="table-scroll"><table class="goals-table"><thead><tr><th>Mes</th><th class="num">Meta</th><th class="num">Resultado</th><th class="num">Cumplimiento</th><th class="num">Pedidos</th><th class="num">Utilidad</th></tr></thead><tbody id="goalsBody"></tbody></table></div>
+        </section>
+
+        <section class="integration-card" id="integraciones">
+          <div class="section-head"><div><p class="section-kicker">CONEXIONES</p><h2>Estado de integraciones</h2></div><span class="section-note">Los estados se leen de la configuración del servidor</span></div>
+          <div class="integration-grid" id="integrationsList"><p class="loading-line">Verificando…</p></div>
+        </section>
+
+        <section class="source-card" id="fuente">
+          <div class="source-icon"><svg viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5V3Zm9 0v5h5M8 13h8m-8 4h6"/></svg></div>
+          <div class="source-copy"><p class="section-kicker">CONEXIÓN DE DATOS</p><h2>Una sola fuente de verdad</h2><p id="sourceDescription">Cargando información del archivo…</p></div>
+        </section>
+
+        <footer class="admin-footer"><span>© <span id="adminYear"></span> Puerto A&amp;M · Uso interno</span><span id="footerDisclaimer">Simulación académica · información ficticia</span></footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- ============ AGENTE IA ============ -->
+  <div class="ai-overlay" id="aiOverlay" aria-hidden="true"></div>
+  <aside class="ai-panel" id="aiPanel" role="dialog" aria-label="Agente financiero" aria-hidden="true">
+    <div class="ai-head">
+      <div class="ai-avatar">✦</div>
+      <div><strong>Agente financiero</strong><small id="aiStatus">Conectando…</small></div>
+      <button class="ai-close" id="aiClose" aria-label="Cerrar agente">×</button>
+    </div>
+    <div class="ai-context" id="aiContext">Cargando contexto financiero…</div>
+    <div class="ai-messages" id="aiMessages" aria-live="polite">
+      <div class="ai-msg bot">Hola. Pregúntame por ventas, costos, utilidad, margen, metas o anomalías. Las cifras se calculan desde la fuente conectada; si un dato requiere otra integración, te lo indico.</div>
+    </div>
+    <div class="ai-suggestions" id="aiSuggestions"></div>
+    <form class="ai-input" id="aiForm">
+      <input type="text" id="aiInput" maxlength="500" autocomplete="off" placeholder="Ej. ¿Cuánto gastamos este mes?" aria-label="Pregunta para el agente">
+      <button type="submit" aria-label="Enviar pregunta">➤</button>
+    </form>
+  </aside>
+
+  <div class="toast" id="adminToast" role="status" aria-live="polite"></div>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

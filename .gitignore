@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.env
+data/admin_secret.json
+data/audit.log
+data/contact_requests.json
+data/_validacion_backup.xlsx
+.venv/

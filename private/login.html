@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071c31">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Acceso interno — Puerto A&M</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body class="login-page">
+  <div class="login-shell">
+    <section class="login-brand">
+      <div class="login-brand-inner">
+        <a class="admin-brand" href="/" aria-label="Volver al sitio público">
+          <span class="admin-brand-mark">P<span>A</span></span>
+          <span><strong>PUERTO A&amp;M</strong><small>INTELIGENCIA FINANCIERA</small></span>
+        </a>
+        <div class="login-statement">
+          <p class="eyebrow light"><span></span> Área reservada</p>
+          <h1>La información<br>merece <em>contexto.</em></h1>
+          <p>Acceso privado al centro de inteligencia financiera, los agentes de análisis y las automatizaciones de la operación.</p>
+        </div>
+        <div class="login-features">
+          <span><i></i> Sesión cifrada y protección CSRF</span>
+          <span><i></i> Cifras calculadas desde la fuente</span>
+          <span><i></i> Auditoría de accesos y acciones</span>
+        </div>
+        <a class="back-link" href="/">← Volver al sitio público</a>
+      </div>
+    </section>
+
+    <section class="login-form-side">
+      <div class="login-card">
+        <p class="login-kicker">IDENTIFÍCATE</p>
+        <h2>Bienvenido de nuevo</h2>
+        <p class="login-sub">Ingresa tus credenciales corporativas para continuar.</p>
+        <form id="loginForm" novalidate>
+          <label>Usuario
+            <input type="text" id="loginUser" autocomplete="username" maxlength="80" required placeholder="Usuario administrador">
+          </label>
+          <label>Contraseña
+            <input type="password" id="loginPass" autocomplete="current-password" maxlength="200" required placeholder="••••••••••••">
+          </label>
+          <p class="login-error" id="loginError" role="alert" aria-live="assertive"></p>
+          <button class="btn btn-primary" type="submit" id="loginSubmit">Entrar al panel <span class="arrow">→</span></button>
+        </form>
+        <div class="login-foot">
+          <span class="lock-icon" aria-hidden="true">◆</span>
+          <p>Este panel no muestra información en el sitio público. Las consultas se registran en la bitácora de auditoría.</p>
+        </div>
+      </div>
+      <p class="login-legal">© <span id="loginYear"></span> Puerto A&amp;M · Uso interno exclusivo</p>
+    </section>
+  </div>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>
